@@ -1,6 +1,14 @@
 #include<iostream>
 #include<vector>
+#include<cmath>
+#define ll long long
 using namespace std;
+ll gcd(ll a,ll b){
+    if(b==0){
+        return a;
+    }
+    return gcd(b,a%b);
+}
 int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
@@ -10,8 +18,12 @@ int main(){
         int n;
         cin>>n;
         vector<int> p(n);
+        ll ans=0;
         for(int i=0;i<n;i++){
             cin>>p[i];
+            ll diff=abs(p[i]- (i+1));
+            ans=gcd(ans,diff);
         }
+        cout<<ans<<"\n";
     }
 }
