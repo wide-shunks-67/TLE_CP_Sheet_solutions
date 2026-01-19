@@ -1,0 +1,26 @@
+#include<iostream>
+#define ll long long
+using namespace std;
+int gcd(int a,int b){
+    if(b==0)return a;
+    return gcd(b,a%b);
+}
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        ll a,b;
+        cin>>a>>b;
+        
+        if(a==b){
+            cout<<0<<" "<<0<<"\n";
+        }
+        else{
+            ll diff= abs(a-b);
+            ll lower_moves= a%diff;
+            ll upper_movers= diff - lower_moves;
+            ll ans= min(lower_moves,upper_movers);
+            cout<<diff<<" "<<ans<<"\n";
+        }
+    }
+}
