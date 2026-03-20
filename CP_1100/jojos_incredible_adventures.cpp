@@ -11,15 +11,15 @@ using namespace std;
     while(t--){
         string s;
         cin>>s;
-        int n = s.size();
-        int maxi=0;
-        int i=0;
+        ll n = s.size();
+        ll maxi=0;
+        ll i=0;
         while(i<n){
             if(s[i]=='0'){
                 i++;
                 continue;
             }
-            int j=i+1;
+            ll j=i+1;
             while(j<n && s[j]=='1'){
                 j++;
             }
@@ -28,26 +28,26 @@ using namespace std;
         }
         if(maxi==n){
             cout<<n * n<<"\n";
+            continue;
         }
-        else{
             if(s[0]=='1' && s[n-1]=='1'){
-                int cnt=0;
-                int i=0;
+                ll cnt=0;
+                ll i=0;
                 while(i<n && s[i]=='1'){
                     cnt++;
                     i++;
                 }
-                int j=n-1;
-                while(j>=0 && s[j]=='1'){
+                ll j=n-1;
+                while(j>=i && s[j]=='1'){
                     cnt++;
                     j--;
                 }
                 maxi= max(maxi,cnt);
-                cout<<(maxi + 1)/2 * (maxi + 2)/2<<"\n";
+                
             }
-            else{
-                cout<<(maxi + 1)/2 * (maxi + 2)/2<<"\n";
-            }
-        }
+            maxi++;
+            ll temp= (maxi + 1)/2;
+            cout<<(temp) * (maxi/2)<<"\n";
+        
     }
  }
