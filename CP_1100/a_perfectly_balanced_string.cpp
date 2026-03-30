@@ -1,0 +1,35 @@
+#include<iostream>
+#include<vector>
+#include<set>
+#include<string>
+#include<algorithm>
+using namespace std;
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    int t;
+    cin>>t;
+    while(t--){
+        string s;
+        cin>>s;
+        int n= s.length();
+        set<char>a;
+        int i;
+        for(i=0;i<n;i++){
+            if(a.find(s[i])==a.end()){
+                a.insert(s[i]);
+            }else{
+                break;
+            }
+        }
+        bool possible = true;
+        for(int j= i;j<n;j++){
+            if(s[j]!=s[j-i]){
+                possible= false;
+                break;
+            }
+        }
+        if(possible)cout<<"yes\n";
+        else cout<<"no\n";
+    }
+}
